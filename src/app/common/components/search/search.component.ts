@@ -6,6 +6,7 @@ import {
   EventEmitter,
   Input,
   OnDestroy,
+  OnInit,
   Output,
   ViewChild,
 } from '@angular/core';
@@ -26,7 +27,7 @@ import {
   styleUrl: './search.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SearchComponent implements AfterViewInit, OnDestroy {
+export class SearchComponent implements OnInit, AfterViewInit, OnDestroy {
   @Input({ required: true }) label: string;
   @Input() searchDelay = 200;
 
@@ -37,7 +38,9 @@ export class SearchComponent implements AfterViewInit, OnDestroy {
 
   private subscription: Subscription | undefined;
 
-  constructor() {}
+  ngOnInit(): void {
+    this.termSearched.emit('');
+  }
 
   ngAfterViewInit(): void {
     this.subscription = fromEvent(this.searchInput.nativeElement, 'input')

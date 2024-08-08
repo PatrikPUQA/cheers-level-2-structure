@@ -84,6 +84,7 @@ export class CocktailService implements OnDestroy {
   }
 
   filterByName(term: string) {
+    console.log('filterByName', term);
     this._nameFilterSubject.next(term);
   }
 

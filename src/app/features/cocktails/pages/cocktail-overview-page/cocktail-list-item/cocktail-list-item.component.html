@@ -1,4 +1,4 @@
-<img [src]="cocktail.imageUrl" />
+<img loading="lazy" [src]="cocktail.imageUrl" width="200" />
 <div>
   <a class="title-link" [routerLink]="[cocktail.id]">{{ cocktail.name }}</a>
 </div>
