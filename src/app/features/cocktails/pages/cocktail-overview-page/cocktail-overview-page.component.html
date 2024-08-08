@@ -1,0 +1,5 @@
+<app-cocktail-filter-bar> </app-cocktail-filter-bar>
+<app-cocktail-list
+  *ngIf="cocktails$ | async as cocktails"
+  [cocktails]="cocktails"
+></app-cocktail-list>

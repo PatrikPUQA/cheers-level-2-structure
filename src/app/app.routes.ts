@@ -2,14 +2,16 @@ import { Routes } from '@angular/router';
 
 export const routes: Routes = [
   {
-    path: 'coctails',
+    path: 'cocktails',
     loadChildren: () =>
-      import('./features/coctails/coctail.routes').then((x) => x.coctailRoutes),
+      import('./features/cocktails/cocktail.routes').then(
+        (x) => x.cocktailRoutes
+      ),
   },
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: '/coctails',
+    redirectTo: '/cocktails',
   },
   {
     path: '**',

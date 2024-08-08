@@ -1,0 +1,19 @@
+:host {
+  background-color: silver;
+  display: block;
+  padding: 1rem 2rem;
+}
+
+.filters {
+  display: flex;
+  gap: 2rem;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.name {
+  font-weight: bold;
+  font-size: 1.2em;
+  padding-bottom: 1rem;
+}
