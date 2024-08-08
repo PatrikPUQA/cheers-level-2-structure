@@ -2,6 +2,7 @@ import {
   ChangeDetectionStrategy,
   Component,
   inject,
+  input,
   OnInit,
 } from '@angular/core';
 import { CocktailService } from '../../services/cocktail.service';
@@ -20,13 +21,13 @@ import { BackButtonComponent } from '../../../../common/components/back-button/b
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CocktailDetailPageComponent implements OnInit {
-  private readonly route = inject(ActivatedRoute);
   private readonly cocktailService = inject(CocktailService);
 
   cocktail$: Observable<Cocktail | null>;
 
+  id = input.required<string>();
+
   ngOnInit(): void {
-    const id = this.route.snapshot.paramMap.get('id')!;
-    this.cocktail$ = this.cocktailService.getCocktailById(id);
+    this.cocktail$ = this.cocktailService.getCocktailById(this.id());
   }
 }
