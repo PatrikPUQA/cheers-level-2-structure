@@ -1,5 +1,6 @@
 <app-back-button></app-back-button>
-<ng-container *ngIf="cocktail$ | async as cocktail">
-  {{ cocktail.id }}
-  {{ cocktail.name }}
-</ng-container>
+
+<app-cocktail-detail
+  *ngIf="cocktail$ | async as cocktail"
+  [cocktail]="cocktail"
+></app-cocktail-detail>

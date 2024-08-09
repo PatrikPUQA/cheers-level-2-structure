@@ -1,4 +1,20 @@
-<img loading="lazy" [src]="cocktail.imageUrl" width="200" />
-<div>
-  <a class="title-link" [routerLink]="[cocktail.id]">{{ cocktail.name }}</a>
+<img
+  class="thumbnail"
+  loading="lazy"
+  [src]="cocktail.imageUrl"
+  width="150"
+  height="150"
+/>
+<div class="info">
+  <div class="header">
+    <a class="title-link" [routerLink]="[cocktail.id]">{{ cocktail.name }}</a>
+    <app-cocktail-favourite-toggle
+      [initialValue]="cocktail.isFavourite"
+      [cocktailId]="cocktail.id"
+    ></app-cocktail-favourite-toggle>
+  </div>
+  <div class="tags">
+    <app-alcoholic-tag [isAlcoholic]="cocktail.isAlcoholic"></app-alcoholic-tag>
+  </div>
+  <div class="ingredients">{{ cocktail.ingredients | prettyArray }}</div>
 </div>

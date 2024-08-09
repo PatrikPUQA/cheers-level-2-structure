@@ -35,16 +35,14 @@ export class CocktailService implements OnDestroy {
     console.log('cocktail service destroyed');
   }
 
-  markAsFavourite(cocktailId: string): void {
+  changeCocktailFavourite(cocktailId: string, isFavourite: boolean) {
+    console.log('changeCocktailFavourite', cocktailId, isFavourite);
     const favourites = new Set(this._favouriteCocktailIdsSubject.value);
-    favourites.add(cocktailId);
-    this.favouriteClientStorage.saveFavouriteCocktailIds(favourites);
-    this._favouriteCocktailIdsSubject.next(favourites);
-  }
-
-  removeFromFavourite(cocktailId: string): void {
-    const favourites = new Set(this._favouriteCocktailIdsSubject.value);
-    favourites.delete(cocktailId);
+    if (isFavourite) {
+      favourites.add(cocktailId);
+    } else {
+      favourites.delete(cocktailId);
+    }
     this.favouriteClientStorage.saveFavouriteCocktailIds(favourites);
     this._favouriteCocktailIdsSubject.next(favourites);
   }

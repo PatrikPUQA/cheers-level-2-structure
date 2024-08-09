@@ -2,8 +2,28 @@
   border: 1px solid black;
   border-radius: 0.5rem;
   overflow: hidden;
+  display: grid;
+  grid-template-columns: minmax(150px, 1fr) 2fr;
 }
 .title-link {
-  font-size: 2rem;
+  font-size: 1.3rem;
   color: black;
+}
+
+.info {
+  padding: 0.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.ingredients,
+.tags {
+  font-size: 0.8rem;
 }

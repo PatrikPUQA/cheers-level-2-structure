@@ -1,1 +1,8 @@
-<p>favourite-toggle works!</p>
+<label class="star-toggle">
+  <input
+    [formControl]="favouriteFormControl"
+    type="checkbox"
+    style="display: none"
+  />
+  <span class="icon-star" [class.active]="favouriteFormControl.value"></span>
+</label>

@@ -11,11 +11,12 @@ import { Cocktail } from '../../models/cocktail';
 import { Observable } from 'rxjs';
 import { AsyncPipe, NgIf } from '@angular/common';
 import { BackButtonComponent } from '../../../../common/components/back-button/back-button.component';
+import { CocktailDetailComponent } from './cocktail-detail/cocktail-detail.component';
 
 @Component({
   selector: 'app-cocktail-detail-page',
   standalone: true,
-  imports: [NgIf, AsyncPipe, BackButtonComponent],
+  imports: [NgIf, AsyncPipe, BackButtonComponent, CocktailDetailComponent],
   templateUrl: './cocktail-detail-page.component.html',
   styleUrl: './cocktail-detail-page.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

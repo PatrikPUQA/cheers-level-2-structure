@@ -1,0 +1,4 @@
+<app-favourite-toggle
+  [initialValue]="initialValue()"
+  (toggled)="cocktailService.changeCocktailFavourite(cocktailId(), $event)"
+></app-favourite-toggle>

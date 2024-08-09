@@ -1,1 +1,6 @@
-<p>cocktail-detail works!</p>
+<app-cocktail-favourite-toggle
+  [initialValue]="cocktail().isFavourite"
+  [cocktailId]="cocktail().id"
+></app-cocktail-favourite-toggle>
+{{ cocktail().id }}
+{{ cocktail().name }}

@@ -5,7 +5,7 @@ import { Pipe, PipeTransform } from '@angular/core';
   standalone: true,
 })
 export class PrettyArrayPipe implements PipeTransform {
-  transform(value: Array<string | number>, joint: string = '|'): string {
+  transform(value: Array<string | number>, joint: string = ' | '): string {
     return value.join(joint);
   }
 }
