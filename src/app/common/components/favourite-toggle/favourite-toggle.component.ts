@@ -18,13 +18,12 @@ import { Subscription, tap } from 'rxjs';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FavouriteToggleComponent implements OnInit, OnDestroy {
-  protected readonly favouriteFormControl = new FormControl<boolean>(false);
-
   initialValue = input(false);
-
-  private formControlSub: Subscription | undefined | null;
-
+  inputId = input<string | number>();
   toggled = output<boolean>();
+
+  protected readonly favouriteFormControl = new FormControl<boolean>(false);
+  private formControlSub: Subscription | undefined | null;
 
   ngOnInit(): void {
     this.favouriteFormControl.setValue(this.initialValue(), {
@@ -34,7 +33,6 @@ export class FavouriteToggleComponent implements OnInit, OnDestroy {
     this.formControlSub = this.favouriteFormControl.valueChanges
       .pipe(
         tap((value) => {
-          console.log('favouriteFormControl', value);
           this.toggled.emit(!!value);
         })
       )

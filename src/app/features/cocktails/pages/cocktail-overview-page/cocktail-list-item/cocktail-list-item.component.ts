@@ -1,4 +1,9 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  input,
+  Input,
+} from '@angular/core';
 import { Cocktail } from '../../../models/cocktail';
 import { JsonPipe } from '@angular/common';
 import { RouterLink } from '@angular/router';
@@ -20,5 +25,5 @@ import { PrettyArrayPipe } from '../../../../../common/pipes/pretty-array.pipe';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CocktailListItemComponent {
-  @Input({ required: true }) cocktail: Cocktail;
+  cocktail = input.required<Cocktail>();
 }
