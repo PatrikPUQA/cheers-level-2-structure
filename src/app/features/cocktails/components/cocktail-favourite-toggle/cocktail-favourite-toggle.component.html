@@ -1,5 +1,5 @@
 <app-favourite-toggle
-  [initialValue]="initialValue()"
+  [toggle]="initialValue()"
+  (toggleChange)="cocktailService.changeCocktailFavourite(cocktailId(), $event)"
   [inputId]="'star-' + cocktailId()"
-  (toggled)="cocktailService.changeCocktailFavourite(cocktailId(), $event)"
 ></app-favourite-toggle>

@@ -1,9 +1,9 @@
 <label class="star-toggle">
   <input
-    [formControl]="favouriteFormControl"
+    [(ngModel)]="toggle"
     [attr.id]="inputId()"
     type="checkbox"
     style="display: none"
   />
-  <span class="icon-star" [class.active]="favouriteFormControl.value"></span>
+  <span class="icon-star" [class.active]="toggle()"></span>
 </label>
