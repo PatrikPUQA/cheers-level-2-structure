@@ -1,6 +1,36 @@
-<app-cocktail-favourite-toggle
-  [initialValue]="cocktail().isFavourite"
-  [cocktailId]="cocktail().id"
-></app-cocktail-favourite-toggle>
-{{ cocktail().id }}
-{{ cocktail().name }}
+<div>
+  <img class="image" [src]="cocktail().imageUrl" width="300" height="300" />
+</div>
+<div>
+  <div class="header">
+    <h1 class="title">{{ cocktail().name }}</h1>
+    <app-cocktail-favourite-toggle
+      [initialValue]="cocktail().isFavourite"
+      [cocktailId]="cocktail().id"
+    ></app-cocktail-favourite-toggle>
+  </div>
+  <div class="info">
+    <div class="info-item tags">
+      <div class="name">Type:</div>
+      <div class="content">
+        <app-alcoholic-tag
+          [isAlcoholic]="cocktail().isAlcoholic"
+        ></app-alcoholic-tag>
+      </div>
+    </div>
+    <div class="info-item ingredients">
+      <div class="name">Ingredients:</div>
+      <div class="content">
+        <ul>
+          @for(ingredient of cocktail().ingredients; track $index) {
+          <li>{{ ingredient }}</li>
+          }
+        </ul>
+      </div>
+    </div>
+    <div class="info-item instructions">
+      <div class="name">Instructions:</div>
+      <div class="content">{{ cocktail().instructions }}</div>
+    </div>
+  </div>
+</div>
