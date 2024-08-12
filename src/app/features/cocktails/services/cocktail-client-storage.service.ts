@@ -6,7 +6,7 @@ import { FavouriteCocktailIds } from '../models/favourite-cocktail-ids';
 export class CocktailClientStorageService {
   private readonly FAVOURITE_STORAGE_KEY = 'FAVOURITE_COCKTAILS';
 
-  private clientStorage = inject(ClientStorageService);
+  private readonly clientStorage = inject(ClientStorageService);
 
   saveFavouriteCocktailIds(favouriteCocktails: FavouriteCocktailIds): void {
     try {
@@ -25,7 +25,6 @@ export class CocktailClientStorageService {
       const loadedString = this.clientStorage.getItem(
         this.FAVOURITE_STORAGE_KEY
       );
-      console.log({ loadedString });
       favouriteCocktails = new Set(JSON.parse(loadedString));
     } catch (e) {
       console.warn('Could NOT load favourite cocktail ids:', e);

@@ -1,9 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  inject,
-  input,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { CocktailFavouriteToggleComponent } from '../../../components/cocktail-favourite-toggle/cocktail-favourite-toggle.component';
 import { Cocktail } from '../../../models/cocktail';
 import { AlcoholTagComponent } from '../../../components/alcohol-tag/alcohol-tag.component';

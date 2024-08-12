@@ -5,7 +5,7 @@ import { Inject, Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class ClientStorageService {
-  private readonly localStorage;
+  private readonly localStorage?: Storage;
 
   constructor(@Inject(DOCUMENT) private document: Document) {
     this.localStorage = this.document.defaultView?.localStorage;

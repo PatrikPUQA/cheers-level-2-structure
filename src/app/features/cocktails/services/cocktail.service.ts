@@ -7,15 +7,13 @@ import {
   map,
   Observable,
   of,
-  Subject,
-  tap,
 } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { CocktailDto } from '../models/cocktail-dto';
 import { Cocktail } from '../models/cocktail';
 import { FavouriteCocktailIds } from '../models/favourite-cocktail-ids';
 @Injectable()
-export class CocktailService implements OnDestroy {
+export class CocktailService {
   private readonly COCKTAILS_ENDPOINT = '/cocktails';
   private readonly _favouriteCocktailIdsSubject =
     new BehaviorSubject<FavouriteCocktailIds>(new Set());
@@ -25,18 +23,12 @@ export class CocktailService implements OnDestroy {
     private favouriteClientStorage: CocktailClientStorageService,
     private httpClient: HttpClient
   ) {
-    console.log('cocktail service created');
     this._favouriteCocktailIdsSubject.next(
       this.favouriteClientStorage.loadFavouriteCocktailIds()
     );
   }
 
-  ngOnDestroy(): void {
-    console.log('cocktail service destroyed');
-  }
-
   changeCocktailFavourite(cocktailId: string, isFavourite: boolean) {
-    console.log('changeCocktailFavourite', cocktailId, isFavourite);
     const favourites = new Set(this._favouriteCocktailIdsSubject.value);
     if (isFavourite) {
       favourites.add(cocktailId);
@@ -48,7 +40,6 @@ export class CocktailService implements OnDestroy {
   }
 
   getAllCocktails(): Observable<Cocktail[] | null> {
-    console.log('getAllCocktails');
     return combineLatest([
       this.fetchAllCocktails(),
       this._favouriteCocktailIdsSubject,
@@ -68,13 +59,11 @@ export class CocktailService implements OnDestroy {
   }
 
   getCocktailById(id: string): Observable<Cocktail | null> {
-    console.log('getCocktailById', id);
     return combineLatest([
       this.fetchCocktailById(id),
       this._favouriteCocktailIdsSubject,
     ]).pipe(
       map(([cocktailDto, favouriteIds]) => {
-        console.log({ cocktailDto });
         return this.mapToCocktail(cocktailDto, favouriteIds);
       }),
       catchError(this.handErrorAndProvideNull)
@@ -82,19 +71,14 @@ export class CocktailService implements OnDestroy {
   }
 
   filterByName(term: string) {
-    console.log('filterByName', term);
     this._nameFilterSubject.next(term);
   }
 
   private fetchAllCocktails(): Observable<CocktailDto[]> {
-    console.log('fetchAllCocktails');
-    return this.httpClient
-      .get<CocktailDto[]>(this.COCKTAILS_ENDPOINT)
-      .pipe(tap((result) => console.log({ result })));
+    return this.httpClient.get<CocktailDto[]>(this.COCKTAILS_ENDPOINT);
   }
 
   private fetchCocktailById(id: string): Observable<CocktailDto | null> {
-    console.log('fetchCocktailById', id);
     return this.httpClient.get<CocktailDto>(`${this.COCKTAILS_ENDPOINT}/${id}`);
   }
 
@@ -113,7 +97,6 @@ export class CocktailService implements OnDestroy {
   }
 
   private handErrorAndProvideNull(error: any): Observable<null> {
-    console.log(error);
     return of(null);
   }
 }

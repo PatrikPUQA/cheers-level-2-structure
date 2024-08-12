@@ -3,11 +3,10 @@ import {
   ChangeDetectionStrategy,
   Component,
   ElementRef,
-  EventEmitter,
-  Input,
+  input,
   OnDestroy,
   OnInit,
-  Output,
+  output,
   ViewChild,
 } from '@angular/core';
 import {
@@ -28,15 +27,15 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SearchComponent implements OnInit, AfterViewInit, OnDestroy {
-  @Input({ required: true }) label: string;
-  @Input() searchDelay = 200;
+  label = input.required<string>();
+  searchDelay = input(200);
 
-  @Output() termSearched = new EventEmitter<string>();
+  termSearched = output<string>();
 
   @ViewChild('searchInput', { static: true })
   searchInput: ElementRef<HTMLInputElement>;
 
-  private subscription: Subscription | undefined;
+  private subscription?: Subscription;
 
   ngOnInit(): void {
     this.termSearched.emit('');
@@ -45,7 +44,7 @@ export class SearchComponent implements OnInit, AfterViewInit, OnDestroy {
   ngAfterViewInit(): void {
     this.subscription = fromEvent(this.searchInput.nativeElement, 'input')
       .pipe(
-        debounceTime(this.searchDelay),
+        debounceTime(this.searchDelay()),
         map(() => this.searchInput.nativeElement.value?.trim()),
         distinctUntilChanged(),
         tap((searchTerm) => this.termSearched.emit(searchTerm))
