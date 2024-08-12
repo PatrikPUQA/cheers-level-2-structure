@@ -16,7 +16,7 @@ import { FavouriteCocktailIds } from '../common/models/favourite-cocktail-ids';
 export class CocktailService {
   private readonly COCKTAILS_ENDPOINT = '/cocktails';
   private readonly _favouriteCocktailIdsSubject =
-    new BehaviorSubject<FavouriteCocktailIds>(new Set());
+    new BehaviorSubject<FavouriteCocktailIds>(new Set<string>());
   private readonly _nameFilterSubject = new BehaviorSubject('');
 
   constructor(
@@ -28,7 +28,7 @@ export class CocktailService {
     );
   }
 
-  changeCocktailFavourite(cocktailId: string, isFavourite: boolean) {
+  changeCocktailFavourite(cocktailId: string, isFavourite: boolean): void {
     const favourites = new Set(this._favouriteCocktailIdsSubject.value);
     if (isFavourite) {
       favourites.add(cocktailId);
@@ -70,7 +70,7 @@ export class CocktailService {
     );
   }
 
-  filterByName(term: string) {
+  filterByName(term: string): void {
     this._nameFilterSubject.next(term);
   }
 
@@ -96,7 +96,7 @@ export class CocktailService {
     };
   }
 
-  private handErrorAndProvideNull(error: any): Observable<null> {
+  private handErrorAndProvideNull(): Observable<null> {
     return of(null);
   }
 }

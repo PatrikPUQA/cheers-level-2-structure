@@ -6,7 +6,7 @@ import { Directive, effect, HostBinding, input } from '@angular/core';
 })
 export class TagDirective {
   backgroundColor = input('transparent', { alias: 'appTag' });
-  @HostBinding('style') get style(): { [klass: string]: any } {
+  @HostBinding('style') get style(): { [klass: string]: unknown } {
     return {
       'background-color': this.backgroundColor(),
       color: 'white',
