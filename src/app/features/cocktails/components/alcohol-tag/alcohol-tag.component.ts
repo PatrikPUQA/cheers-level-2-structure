@@ -12,4 +12,15 @@ import { TagDirective } from '../../../../common/directives/tag.directive';
 })
 export class AlcoholTagComponent {
   isAlcoholic = input.required<boolean>();
+
+  protected readonly ALCOHOLIC_TAG = {
+    ALCOHOLIC: {
+      COLOUR: '#5e81ac',
+      TEXT: 'Alcoholic',
+    },
+    NON_ALCOHOLIC: {
+      COLOUR: '#a3be8c',
+      TEXT: 'Non alcoholic',
+    },
+  } as const;
 }

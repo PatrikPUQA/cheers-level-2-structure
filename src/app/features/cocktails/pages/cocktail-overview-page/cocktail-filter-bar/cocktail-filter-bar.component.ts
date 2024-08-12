@@ -12,9 +12,9 @@ import { CocktailService } from '../../../services/cocktail.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CocktailFilterBarComponent {
-  private cocktailService = inject(CocktailService);
+  private readonly cocktailService = inject(CocktailService);
+
   onSearch(searchTerm: string): void {
-    console.log('searching:', searchTerm);
     this.cocktailService.filterByName(searchTerm.toLowerCase());
   }
 }

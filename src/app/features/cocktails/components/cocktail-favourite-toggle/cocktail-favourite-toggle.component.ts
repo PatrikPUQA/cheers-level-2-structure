@@ -19,5 +19,5 @@ export class CocktailFavouriteToggleComponent {
   initialValue = input.required<boolean>();
   cocktailId = input.required<string>();
 
-  protected cocktailService = inject(CocktailService);
+  protected readonly cocktailService = inject(CocktailService);
 }

@@ -6,7 +6,6 @@ import {
   OnInit,
 } from '@angular/core';
 import { CocktailService } from '../../services/cocktail.service';
-import { ActivatedRoute, Router } from '@angular/router';
 import { Cocktail } from '../../models/cocktail';
 import { Observable } from 'rxjs';
 import { AsyncPipe, NgIf } from '@angular/common';
@@ -22,11 +21,11 @@ import { CocktailDetailComponent } from './cocktail-detail/cocktail-detail.compo
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CocktailDetailPageComponent implements OnInit {
+  id = input.required<string>();
+
   private readonly cocktailService = inject(CocktailService);
 
   cocktail$: Observable<Cocktail | null>;
-
-  id = input.required<string>();
 
   ngOnInit(): void {
     this.cocktail$ = this.cocktailService.getCocktailById(this.id());

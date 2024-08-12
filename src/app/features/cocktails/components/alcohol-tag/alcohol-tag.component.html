@@ -1,3 +1,12 @@
-<span [appTag]="isAlcoholic() ? '#5e81ac' : '#a3be8c'">{{
-  isAlcoholic() ? "Alcoholic" : "Non alcoholic"
-}}</span>
+<span
+  [appTag]="
+    isAlcoholic()
+      ? ALCOHOLIC_TAG.ALCOHOLIC.COLOUR
+      : ALCOHOLIC_TAG.NON_ALCOHOLIC.COLOUR
+  "
+  >{{
+    isAlcoholic()
+      ? ALCOHOLIC_TAG.ALCOHOLIC.TEXT
+      : ALCOHOLIC_TAG.NON_ALCOHOLIC.TEXT
+  }}</span
+>
