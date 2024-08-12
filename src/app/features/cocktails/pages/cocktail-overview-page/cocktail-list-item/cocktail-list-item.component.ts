@@ -1,11 +1,5 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  input,
-  Input,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { Cocktail } from '../../../models/cocktail';
-import { JsonPipe } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { CocktailFavouriteToggleComponent } from '../../../components/cocktail-favourite-toggle/cocktail-favourite-toggle.component';
 import { AlcoholTagComponent } from '../../../components/alcohol-tag/alcohol-tag.component';
