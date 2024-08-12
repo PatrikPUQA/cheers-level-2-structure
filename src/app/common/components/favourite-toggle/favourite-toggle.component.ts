@@ -16,5 +16,5 @@ import { FormsModule } from '@angular/forms';
 })
 export class FavouriteToggleComponent {
   toggle = model.required<boolean>();
-  inputId = input<string | number>();
+  toggleId = input<string | number>();
 }

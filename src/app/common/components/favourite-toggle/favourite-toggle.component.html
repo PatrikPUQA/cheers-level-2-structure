@@ -1,9 +1,8 @@
 <label class="star-toggle">
-  <input
-    [(ngModel)]="toggle"
-    [attr.id]="inputId()"
-    type="checkbox"
-    style="display: none"
-  />
-  <span class="icon-star" [class.active]="toggle()"></span>
+  <input [(ngModel)]="toggle" type="checkbox" style="display: none" />
+  <span
+    [attr.id]="toggleId()"
+    class="icon-star"
+    [class.active]="toggle()"
+  ></span>
 </label>
