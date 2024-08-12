@@ -12,7 +12,7 @@ export class CocktailClientStorageService {
     try {
       this.clientStorage.setItem(
         this.FAVOURITE_STORAGE_KEY,
-        JSON.stringify(Array.from(favouriteCocktails))
+        JSON.stringify(Array.from(favouriteCocktails)),
       );
     } catch (e) {
       console.warn('Could NOT save favourite cocktail ids:', e);
@@ -23,7 +23,7 @@ export class CocktailClientStorageService {
     let favouriteCocktails = new Set<string>();
     try {
       const loadedString = this.clientStorage.getItem(
-        this.FAVOURITE_STORAGE_KEY
+        this.FAVOURITE_STORAGE_KEY,
       );
       favouriteCocktails = new Set(JSON.parse(loadedString));
     } catch (e) {

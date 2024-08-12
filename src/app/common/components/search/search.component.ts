@@ -47,7 +47,7 @@ export class SearchComponent implements OnInit, AfterViewInit, OnDestroy {
         debounceTime(this.searchDelay()),
         map(() => this.searchInput.nativeElement.value?.trim()),
         distinctUntilChanged(),
-        tap((searchTerm) => this.termSearched.emit(searchTerm))
+        tap((searchTerm) => this.termSearched.emit(searchTerm)),
       )
       .subscribe();
   }

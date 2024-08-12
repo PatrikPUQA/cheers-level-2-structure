@@ -21,10 +21,10 @@ export class CocktailService {
 
   constructor(
     private favouriteClientStorage: CocktailClientStorageService,
-    private httpClient: HttpClient
+    private httpClient: HttpClient,
   ) {
     this._favouriteCocktailIdsSubject.next(
-      this.favouriteClientStorage.loadFavouriteCocktailIds()
+      this.favouriteClientStorage.loadFavouriteCocktailIds(),
     );
   }
 
@@ -51,10 +51,10 @@ export class CocktailService {
             return this.mapToCocktail(cocktailDto, favouriteIds);
           })
           .filter((cocktail) =>
-            cocktail.name.toLowerCase().includes(nameFilter)
+            cocktail.name.toLowerCase().includes(nameFilter),
           );
       }),
-      catchError(this.handErrorAndProvideNull)
+      catchError(this.handErrorAndProvideNull),
     );
   }
 
@@ -66,7 +66,7 @@ export class CocktailService {
       map(([cocktailDto, favouriteIds]) => {
         return this.mapToCocktail(cocktailDto, favouriteIds);
       }),
-      catchError(this.handErrorAndProvideNull)
+      catchError(this.handErrorAndProvideNull),
     );
   }
 
@@ -84,7 +84,7 @@ export class CocktailService {
 
   private mapToCocktail(
     dto: CocktailDto | null,
-    favouriteIds: Set<string>
+    favouriteIds: Set<string>,
   ): Cocktail {
     if (!dto) {
       throw new Error(`Trying to map a 'null' dto to coctail.`);
