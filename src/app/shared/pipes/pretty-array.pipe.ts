@@ -1,7 +1,7 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'prettyArray',
+  name: 'appPrettyArray',
   standalone: true,
 })
 export class PrettyArrayPipe implements PipeTransform {

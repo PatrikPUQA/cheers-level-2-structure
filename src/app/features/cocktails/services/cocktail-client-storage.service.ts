@@ -1,6 +1,6 @@
 import { inject, Injectable } from '@angular/core';
-import { ClientStorageService } from '../../../services/client-storage.service';
-import { FavouriteCocktailIds } from '../models/favourite-cocktail-ids';
+import { ClientStorageService } from '../../../core/services/client-storage.service';
+import { FavouriteCocktailIds } from '../common/models/favourite-cocktail-ids';
 
 @Injectable()
 export class CocktailClientStorageService {

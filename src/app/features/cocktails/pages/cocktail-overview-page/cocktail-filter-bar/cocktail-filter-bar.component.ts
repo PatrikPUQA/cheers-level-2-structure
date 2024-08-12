@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { FilterBarComponent } from '../../../../../common/components/filter-bar/filter-bar.component';
-import { SearchComponent } from '../../../../../common/components/search/search.component';
+import { FilterBarComponent } from '../../../../../shared/components/filter-bar/filter-bar.component';
+import { SearchComponent } from '../../../../../shared/components/search/search.component';
 import { CocktailService } from '../../../services/cocktail.service';
 
 @Component({

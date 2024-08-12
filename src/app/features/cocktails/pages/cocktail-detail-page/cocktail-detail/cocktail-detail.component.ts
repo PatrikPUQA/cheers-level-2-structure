@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
-import { Cocktail } from '../../../models/cocktail';
-import { AlcoholTagComponent } from '../../../components/alcohol-tag/alcohol-tag.component';
-import { CocktailComponent } from '../../../components/cocktail/cocktail.component';
+import { Cocktail } from '../../../common/models/cocktail';
+import { AlcoholTagComponent } from '../../../common/components/cocktail-alcohol-tag/cocktail-alcohol-tag.component';
+import { CocktailComponent } from '../../../common/components/cocktail/cocktail.component';
 
 @Component({
   selector: 'app-cocktail-detail',

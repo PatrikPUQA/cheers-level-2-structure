@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
-import { Cocktail } from '../../../models/cocktail';
+import { Cocktail } from '../../../common/models/cocktail';
 import { CocktailListItemComponent } from '../cocktail-list-item/cocktail-list-item.component';
 
 @Component({

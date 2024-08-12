@@ -7,12 +7,7 @@ import {
 import { CocktailFavouriteToggleComponent } from '../cocktail-favourite-toggle/cocktail-favourite-toggle.component';
 import { RouterLink } from '@angular/router';
 import { Cocktail } from '../../models/cocktail';
-
-enum CocktailItemEnum {
-  LIST_ITEM = 'listItem',
-  DETAIL_ITEM = 'detailItem',
-}
-export type CocktailItemType = `${CocktailItemEnum}`;
+import { CocktailItemEnum, CocktailItemType } from './types';
 
 @Component({
   selector: 'app-cocktail',

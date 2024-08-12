@@ -1,10 +1,10 @@
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
-import { Cocktail } from '../../../models/cocktail';
+import { Cocktail } from '../../../common/models/cocktail';
 import { RouterLink } from '@angular/router';
-import { CocktailFavouriteToggleComponent } from '../../../components/cocktail-favourite-toggle/cocktail-favourite-toggle.component';
-import { AlcoholTagComponent } from '../../../components/alcohol-tag/alcohol-tag.component';
-import { PrettyArrayPipe } from '../../../../../common/pipes/pretty-array.pipe';
-import { CocktailComponent } from '../../../components/cocktail/cocktail.component';
+import { CocktailFavouriteToggleComponent } from '../../../common/components/cocktail-favourite-toggle/cocktail-favourite-toggle.component';
+import { AlcoholTagComponent } from '../../../common/components/cocktail-alcohol-tag/cocktail-alcohol-tag.component';
+import { PrettyArrayPipe } from '../../../../../shared/pipes/pretty-array.pipe';
+import { CocktailComponent } from '../../../common/components/cocktail/cocktail.component';
 
 @Component({
   selector: 'app-cocktail-list-item',

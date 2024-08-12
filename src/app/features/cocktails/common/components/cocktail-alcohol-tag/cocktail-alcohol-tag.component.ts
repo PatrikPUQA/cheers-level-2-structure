@@ -1,13 +1,13 @@
 import { NgIf } from '@angular/common';
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
-import { TagDirective } from '../../../../common/directives/tag.directive';
+import { TagDirective } from '../../../../../shared/directives/tag.directive';
 
 @Component({
-  selector: 'app-alcoholic-tag',
+  selector: 'app-cocktail-alcohol-tag',
   standalone: true,
   imports: [NgIf, TagDirective],
-  templateUrl: './alcohol-tag.component.html',
-  styleUrl: './alcohol-tag.component.scss',
+  templateUrl: './cocktail-alcohol-tag.component.html',
+  styleUrl: './cocktail-alcohol-tag.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AlcoholTagComponent {

@@ -4,8 +4,8 @@ import {
   inject,
   input,
 } from '@angular/core';
-import { FavouriteToggleComponent } from '../../../../common/components/favourite-toggle/favourite-toggle.component';
-import { CocktailService } from '../../services/cocktail.service';
+import { FavouriteToggleComponent } from '../../../../../shared/components/favourite-toggle/favourite-toggle.component';
+import { CocktailService } from '../../../services/cocktail.service';
 
 @Component({
   selector: 'app-cocktail-favourite-toggle',

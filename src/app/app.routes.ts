@@ -5,7 +5,7 @@ export const routes: Routes = [
     path: 'cocktails',
     loadChildren: () =>
       import('./features/cocktails/cocktail.routes').then(
-        (x) => x.cocktailRoutes
+        (x) => x.cocktailRoutes,
       ),
   },
   {
@@ -17,8 +17,8 @@ export const routes: Routes = [
     path: '**',
     title: 'Page Not Found',
     loadComponent: () =>
-      import('./pages/not-found-page/not-found-page.component').then(
-        (x) => x.NotFoundPageComponent
+      import('./shared/pages/not-found-page/not-found-page.component').then(
+        (x) => x.NotFoundPageComponent,
       ),
   },
 ];

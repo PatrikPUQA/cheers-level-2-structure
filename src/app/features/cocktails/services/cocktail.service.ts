@@ -9,9 +9,9 @@ import {
   of,
 } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { CocktailDto } from '../models/cocktail-dto';
-import { Cocktail } from '../models/cocktail';
-import { FavouriteCocktailIds } from '../models/favourite-cocktail-ids';
+import { CocktailDto } from '../common/models/cocktail-dto';
+import { Cocktail } from '../common/models/cocktail';
+import { FavouriteCocktailIds } from '../common/models/favourite-cocktail-ids';
 @Injectable()
 export class CocktailService {
   private readonly COCKTAILS_ENDPOINT = '/cocktails';

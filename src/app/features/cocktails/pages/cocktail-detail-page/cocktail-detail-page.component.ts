@@ -6,10 +6,10 @@ import {
   OnInit,
 } from '@angular/core';
 import { CocktailService } from '../../services/cocktail.service';
-import { Cocktail } from '../../models/cocktail';
+import { Cocktail } from '../../common/models/cocktail';
 import { Observable } from 'rxjs';
 import { AsyncPipe, NgIf } from '@angular/common';
-import { BackButtonComponent } from '../../../../common/components/back-button/back-button.component';
+import { BackButtonComponent } from '../../../../shared/components/back-button/back-button.component';
 import { CocktailDetailComponent } from './cocktail-detail/cocktail-detail.component';
 
 @Component({

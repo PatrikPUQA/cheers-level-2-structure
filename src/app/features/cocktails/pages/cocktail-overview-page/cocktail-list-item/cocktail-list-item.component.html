@@ -1,8 +1,8 @@
 <app-cocktail itemType="listItem" [cocktail]="cocktail()">
   <div class="tags">
-    <app-alcoholic-tag
+    <app-cocktail-alcohol-tag
       [isAlcoholic]="cocktail().isAlcoholic"
-    ></app-alcoholic-tag>
+    ></app-cocktail-alcohol-tag>
   </div>
-  <div class="ingredients">{{ cocktail().ingredients | prettyArray }}</div>
+  <div class="ingredients">{{ cocktail().ingredients | appPrettyArray }}</div>
 </app-cocktail>
